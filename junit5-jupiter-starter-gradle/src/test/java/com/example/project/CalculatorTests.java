@@ -18,7 +18,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 class CalculatorTests {
-
+ 
 	@Test
 	@DisplayName("1 + 1 = 2")
 	void addsTwoNumbers() {
