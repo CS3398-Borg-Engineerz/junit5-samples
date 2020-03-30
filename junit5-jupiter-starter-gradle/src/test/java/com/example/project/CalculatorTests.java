@@ -26,17 +26,27 @@ class CalculatorTests {
 		assertEquals(2, calculator.add(1, 1), "1 + 1 should equal 2");
 	}
 
+	@Test
+	@DisplayName("1 - 1 = 0")
 	void subtractsTwoNumbers() {
 		Calculator calculator = new Calculator();
 		assertEquals(0, calculator.subtract(1, 1), "1 - 1 should equal 0");
 	}
 
-	@ParameterizedTest(name = "{0} + {1} = {2}")
+	@ParameterizedTest(name = "{1} + {1} = {2}")
 	@CsvSource({
 			"0,    1,   1",
 			"1,    2,   3",
 			"49,  51, 100",
 			"1,  100, 101"
+	})
+
+	@ParameterizedTest(name = "{1} - {1} = {0}")
+	@CsvSource({
+			"1,    1,   0",
+			"4,    2,   2",
+			"151,  51, 100",
+			"201,  100, 101"
 	})
 
 	void add(int first, int second, int expectedResult) {
