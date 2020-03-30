@@ -20,6 +20,7 @@ import java.util.stream.Collectors;
 /**
  * Platform-agnostic builder used by {@code build-all-samples.jsh}.
  */
+ //comment by Bailey
 @SuppressWarnings({ "WeakerAccess", "SameParameterValue" })
 class Builder {
 
