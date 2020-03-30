@@ -8,7 +8,7 @@
  * http://www.eclipse.org/legal/epl-v20.html
  */
 
-package com.example.project;
+package com.example.project; 
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -18,7 +18,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 class CalculatorTests {
-
+ 
 	@Test
 	@DisplayName("1 + 1 = 2")
 	void addsTwoNumbers() {
@@ -26,36 +26,33 @@ class CalculatorTests {
 		assertEquals(2, calculator.add(1, 1), "1 + 1 should equal 2");
 	}
 
-	@Test
-	@DisplayName("1 - 1 = 0")
-	void subtractsTwoNumbers() {
-		Calculator calculator = new Calculator();
-		assertEquals(0, calculator.subtract(1, 1), "1 - 1 should equal 0");
-	}
-
-	@ParameterizedTest(name = "{1} + {1} = {2}")
+	@ParameterizedTest(name = "{0} + {1} = {2}")
 	@CsvSource({
 			"0,    1,   1",
 			"1,    2,   3",
 			"49,  51, 100",
 			"1,  100, 101"
 	})
-
-	@ParameterizedTest(name = "{1} - {1} = {0}")
-	@CsvSource({
-			"1,    1,   0",
-			"4,    2,   2",
-			"151,  51, 100",
-			"201,  100, 101"
-	})
-
 	void add(int first, int second, int expectedResult) {
 		Calculator calculator = new Calculator();
 		assertEquals(expectedResult, calculator.add(first, second),
 				() -> first + " + " + second + " should equal " + expectedResult);
 	}
 
-	void subract(int first, int second, int expectedResult) {
+	@DisplayName("1 - 1 = 0")
+	void subtractsTwoNumbers() {
+		Calculator calculator = new Calculator();
+		assertEquals(0, calculator.subtract(1, 1), "1 - 1 should equal 0");
+	}
+
+	@ParameterizedTest(name = "{0} - {1} = {2}")
+	@CsvSource({
+			"1,    0,   1",
+			"2,    1,   1",
+			"40,  20, 20",
+			"100,  7, 93"
+	})
+	void subtract(int first, int second, int expectedResult) {
 		Calculator calculator = new Calculator();
 		assertEquals(expectedResult, calculator.subtract(first, second),
 				() -> first + " - " + second + " should equal " + expectedResult);
